@@ -22,7 +22,7 @@ export class GifService {
 
   trendingGifs = signal<Gif[]>([]);
   trendingGifsLoading = signal(false);
-  
+
   private trendingPage = signal(0);
 
   searchHistory = signal<Record<string, Gif[]>>(loadFromLocalStorage());

@@ -1,7 +1,11 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-  @for (gif of gifs(); track gif) {
-
-  <gif-list-item [imageUrl]="gif.url" />
-
+  @for (group of trendingGifGroup(); track $index) {
+  <div class="grid gap-4">
+    @for (gif of group; track gif.id) {
+    <div>
+      <gif-list-item [gif]="gif" />
+    </div>
+    }
+  </div>
   }
 </div>

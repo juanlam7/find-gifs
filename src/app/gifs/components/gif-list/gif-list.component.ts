@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
 import { GifListItemComponent } from './gif-list-item/gif-list-item.component';
 import { Gif } from '../../interfaces/gif.interface';
 
@@ -9,4 +9,13 @@ import { Gif } from '../../interfaces/gif.interface';
 })
 export class GifListComponent {
   gifs = input.required<Gif[]>();
+
+  trendingGifGroup = computed<Gif[][]>(() => {
+    const groups = [];
+    for (let i = 0; i < this.gifs().length; i += 3) {
+      groups.push(this.gifs().slice(i, i + 3));
+    }
+
+    return groups;
+  });
 }
