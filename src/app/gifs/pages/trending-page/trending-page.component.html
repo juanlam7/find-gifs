@@ -1,1 +1,7 @@
-<h1 class="text-3xl text-slate-500 m-5 font-bold underline">Hello world from trending page</h1>
+<div
+  class="h-screen overflow-y-scroll grid grid-cols-2 md:grid-cols-4 gap-4 pt-5 hide-scrollbar"
+  (scroll)="onScroll($event)"
+  #groupDiv
+>
+  <gif-list class="contents" [gifs]="gifService.trendingGifs()" />
+</div>
